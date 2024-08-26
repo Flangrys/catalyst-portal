@@ -1,0 +1,135 @@
+@import url("/css/pico.grey.min.css");
+
+[data-theme="dark"] {
+  --pico-background-gradient-color: #181546;
+  --pico-accent-color: #b0a3e8;
+}
+
+[data-theme="light"] {
+  --pico-background-gradient-color: #e5e0f4;
+  --pico-accent-color: #7569da;
+}
+
+:root {
+  --pico-zindex-hero-bg: -100;
+
+  --pico-font-family-sans-serif: "Inria Sans", sans-serif, system-ui, "Segoe UI",
+    Ubuntu, var(--pico-font-family-emoji);
+
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+:where(:root) {
+  background: var(--pico-background-color);
+  background: linear-gradient(
+    45deg,
+    var(--pico-background-color) 0%,
+    var(--pico-background-gradient-color) 100%
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    var(--pico-background-color) 0%,
+    var(--pico-background-gradient-color) 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    var(--pico-background-color) 0%,
+    var(--pico-background-gradient-color) 100%
+  );
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  font-style: italic;
+}
+
+body > div.root {
+  max-width: 75%;
+  margin: auto;
+  padding: var(--pico-spacing);
+
+  display: grid;
+  gap: var(--pico-spacing);
+
+  grid-template-areas:
+    "header header header"
+    "aside main main"
+    "footer footer footer";
+  grid-template-columns: auto 3fr auto;
+  grid-template-rows: auto 5fr auto;
+
+  header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  aside {
+    grid-area: aside;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}
+
+article.hero {
+  position: relative;
+}
+
+article.hero > div.hero-bg {
+  position: absolute;
+  z-index: var(--pico-zindex-hero-bg);
+}
+
+article.hero section {
+  display: grid;
+  gap: var(--pico-spacing);
+  place-content: center;
+  place-items: center;
+  text-align: center;
+}
+
+/* NOTE: This will be deprecated when the logo comes in use. */
+header nav > a {
+  align-self: end;
+}
+
+svg.icon,
+img.icon,
+.icon {
+  height: 24px;
+  width: 24px;
+  filter: invert(28%) sepia(100%) saturate(750%) hue-rotate(210deg)
+    brightness(90%) contrast(95%);
+}
+
+[data-theme="light"] .icon[data-theme-icon="light"] {
+  display: none;
+  visibility: hidden;
+}
+
+[data-theme="dark"] .icon[data-theme-icon="dark"] {
+  display: none;
+  visibility: hidden;
+}
+
+.secondary {
+  font-weight: bold;
+  color: var(--pico-accent-color);
+}
+
+.accent {
+  color: var(--pico-accent-color);
+}
