@@ -1,7 +1,7 @@
 (function () {
   const htmlElement = document.querySelector("html");
   const colorThemeTogglerButton = document.querySelector(
-    "button[data-theme-toggler]"
+    "button.theme-toggler"
   );
 
   if (!colorThemeTogglerButton) {
@@ -11,8 +11,6 @@
 
   colorThemeTogglerButton.addEventListener("click", (event) => {
     const currentThemeColor = htmlElement.getAttribute("data-theme");
-
-    console.log(currentThemeColor);
 
     if (!currentThemeColor) {
       console.error(

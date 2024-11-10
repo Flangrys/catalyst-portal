@@ -1,0 +1,35 @@
+{{ template "fragments/header" . }}
+
+<main>
+    <article>
+        <section class="graph-containers">
+            <hgroup>
+                <h4>Current Infrastructure</h4>
+                <p>Running Containers: {{.ContainersCount}}</p>
+            </hgroup>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <th>Container Name</th>
+                    <th>Container ID</th>
+                    <th>Current Status</th>
+                    <th>Age</th>
+                </thead>
+                <tbody>
+                    {{range .ContainersDummy}}
+                    <tr>
+                        <td>{{.Name}}</td>
+                        <td>{{.Id}}</td>
+                        <td>{{.Status}}</td>
+                        <td>{{.Age}}</td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </section>
+    </article>
+</main>
+
+{{ template "fragments/footer" . }}
