@@ -19,4 +19,6 @@ func Init() {
 	if err != nil {
 		log.Panic("Docker just having a bad day.")
 	}
+
+	defer DockerCli.Close()
 }

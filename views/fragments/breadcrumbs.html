@@ -1,0 +1,12 @@
+<header>
+    <nav aria-label="breadcrumb">
+        <ul>
+            {{ range .Nuggets }}
+            <li><a href="{{ .Url }}">{{ .Label }}</a></li>
+            {{ else }}
+            <li><a href="/">Home</a></li>
+            <li>Root</li>
+            {{ end }}
+        </ul>
+    </nav>
+</header>

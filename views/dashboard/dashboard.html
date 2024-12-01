@@ -2,10 +2,10 @@
 
 <main>
     <article>
-        <section class="graph-containers">
+        <section>
             <hgroup>
                 <h4>Current Infrastructure</h4>
-                <p>Running Containers: {{.ContainersCount}}</p>
+                <p>Running Containers: {{ .Count }}</p>
             </hgroup>
         </section>
 
@@ -15,15 +15,15 @@
                     <th>Container Name</th>
                     <th>Container ID</th>
                     <th>Current Status</th>
-                    <th>Age</th>
+                    <th>Creation Date</th>
                 </thead>
                 <tbody>
-                    {{range .ContainersDummy}}
+                    {{range .Containers}}
                     <tr>
-                        <td>{{.Name}}</td>
-                        <td>{{.Id}}</td>
-                        <td>{{.Status}}</td>
-                        <td>{{.Age}}</td>
+                        <td>{{.Names}}</td>
+                        <td><a href="/dashboard/container/{{.ID}}">{{.ID}}</a></td>
+                        <td>{{.State}}</td>
+                        <td>{{.Created}}</td>
                     </tr>
                     {{end}}
                 </tbody>

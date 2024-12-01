@@ -1,0 +1,38 @@
+{{ template "fragments/header" . }}
+
+<main>
+    {{ template "fragments/breadcrumbs" . }}
+    <article>
+        <section>
+            <hgroup>
+                <h1>{{ .ID }} {{ .Names }}</h1>
+                <p>{{ .Image }}</p>
+            </hgroup>
+            <p>{{ .Status }} - {{ .State }}</p>
+        </section>
+
+        <section>
+            <div class="container-fluid">
+                <form action="/dashboard/container/" method="POST" id="container-settings-form"
+                    name="container-settings-form">
+                    <input type="hidden" value="{{ .CSRF_TOKEN }}" name="csrf_token">
+                    <input type="hidden" value="{{ .ID }}" name="container-id">
+
+                    <fieldset class="grid">
+                        <legend>Commands</legend>
+                        <input class="success" type="button" value="Switch on" name="switch-on-container">
+                        <input class="danger" type="button" value="Switch off" name="switch-off-container">
+                    </fieldset>
+
+                    <fieldset role="group">
+                        <input type="password" required name="password" id="password" placeholder="Type your password">
+                        <input type="number" required name="otp" id="otp" placeholder="Type the One-Time Password">
+                        <input type="submit" value="Apply Changes" class="contrast">
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </article>
+</main>
+
+{{ template "fragments/footer" . }}
